@@ -315,6 +315,8 @@ print('\033[1;30;41m}#{|\033[m' * 20)
 print('#=' * 35)
 print('{:=^81}'.format('\33[30;42mMédia, maior e menor valor\33[m'))
 print('#=' * 35)
+from statistics import median
+
 lista_numeros65 = []
 aux65 = False
 while aux65 == False:
@@ -324,6 +326,10 @@ while aux65 == False:
         aux65 = True
 print('Aguarde...')
 sleep(1)
+print('A quantidade de numeros digitados foi {}'.format(len(lista_numeros65)))
+print('Os numeros digitados foram {}'.format(lista_numeros65))
+print('A mediana dos numeros digitados é {}'.format(median(lista_numeros65))) # mediana
+print('A mediana dos numeros digitados é {}'.format(sorted(lista_numeros65)[len(lista_numeros65) // 2])) # mediana
 print('A média dos numeros digitados é {}'.format(sum(lista_numeros65) / len(lista_numeros65)))
 print('O maior numero digitado foi {}'.format(max(lista_numeros65)))
 print('O menor numero digitado foi {}'.format(min(lista_numeros65)))
