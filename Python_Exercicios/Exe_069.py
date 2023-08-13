@@ -29,4 +29,38 @@ print(f'{numero_mais18} pessoas tem mais de 18 anos')
 print(f'{numero_homem} homens foram cadastrados')
 print(f'{numero_mulher} mulheres tem menos de 20 anos')
 
+# meu codigo:
+'''
+from time import sleep
+cprint('-='*35)
+print('{:=^81}'.format('\33[30;42mCadastro de pessoas\33[m'))
+print('-='*35)
+
+contador_mais18 = contador_homens = contador_mulheres_menos20 = 0
+continuar_val = 'S'
+while True:
+    nome_pessoa = str(input('Nome: ')).strip().upper()
+    sexo_pessoa = str(input('Sexo [M/F]: ')).strip().upper()[0]
+    idade_pessoa = int(input('Idade: '))
+    if sexo_pessoa == 'M':
+        if idade_pessoa >= 18:
+            contador_mais18 += 1
+            contador_homens += 1
+        else:
+            contador_homens += 1
+    elif sexo_pessoa == 'F' and idade_pessoa < 20:
+        contador_mulheres_menos20 += 1
+    elif sexo_pessoa == 'F' and idade_pessoa >= 18:
+        contador_mais18 += 1
+    continuar_val = str(input('Quer continuar? [S/N]: ')).strip().upper()[0]
+    if continuar_val == 'N':
+        break
+    else:
+        print('Não entendi, digite novamente')
+print(f'Total de pessoas com mais de 18 anos: {contador_mais18}')
+print(f'Ao todo temos {contador_homens} homens cadastrados')
+print(f'E temos {contador_mulheres_menos20} mulheres com menos de 20 anos')
+print('\033[1;30;41m}#{|\033[m' * 20)
+'''
+
 
