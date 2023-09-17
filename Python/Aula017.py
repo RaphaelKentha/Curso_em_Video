@@ -50,9 +50,9 @@ for aux in range(0, 5):
     sleep(0.5)
 print(f'Os seguintes valores foram digitados: {lista_cinco_valores} ', end='')
 print(f'\nO maior valor digitado foi {max(lista_cinco_valores)} nas posições ', end='')
-print(f'{lista_cinco_valores.index(max(lista_cinco_valores))}°') # mostra a posição do maior valor
+print(f'{lista_cinco_valores.index(max(lista_cinco_valores)) + 1}°') # mostra a posição do maior valor
 print(f'O menor valor digitado foi {min(lista_cinco_valores)} nas posições ', end='')
-print(f'{lista_cinco_valores.index(min(lista_cinco_valores))}°') # mostra a posição do menor valor
+print(f'{lista_cinco_valores.index(min(lista_cinco_valores)) + 1}°') # mostra a posição do menor valor
 print('\033[1;30;41m}#{|\033[m' * 20)
 
 #desafio 79
@@ -98,7 +98,16 @@ for aux in range(0, 5):
     numero_adicionar = int(input('Digite um número: '))
     if len(lista_pre_ordenada) == 0:
         lista_pre_ordenada.append(numero_adicionar)
-    
+    else:
+        for contador in range(0, len(lista_pre_ordenada)):
+            if numero_adicionar <= lista_pre_ordenada[contador]:
+                lista_pre_ordenada.insert(contador, numero_adicionar)
+                break
+            elif numero_adicionar > lista_pre_ordenada[-1]:
+                lista_pre_ordenada.append(numero_adicionar)
+                break
+print(f'Os valores digitados foram: {lista_pre_ordenada}')
+print('\033[1;30;41m}#{|\033[m' * 20)
 
 #desafio 81
 # Crie um programa que vai ler vários números e colocar em uma lista
@@ -106,12 +115,54 @@ for aux in range(0, 5):
 # A) Quantos números foram digitados
 # B) A lista de valores, ordenada de forma decrescente
 # C) Se o valor 5 foi digitado e está ou não na lista
+print('-='*35)
+print('{:=^81}'.format('\33[30;42mLista ordenada\33[m'))
+print('-='*35)
+
+lista_varios_valores = []
+count_varios_valores = 0
+
+while True:
+    lista_varios_valores.append(int(input('Digite um número: ')))
+    sleep(0.23)
+    count_varios_valores += 1
+    if input('Deseja continuar? [S/N] ').upper() == 'N':
+        break
+print(f'Foram digitados {count_varios_valores} números')
+print(f'Os números digitados foram: {sorted(lista_varios_valores, reverse=True)}') # mostra a lista em ordem decrescente
+if 5 in lista_varios_valores:
+    print('O número 5 foi digitado!')
+else:
+    print('O número 5 não foi digitado!')
+print('\033[1;30;41m}#{|\033[m' * 20)
 
 #desafio 82
 # Crie um programa que vai ler vários números e colocar em uma lista
 # Depois disso, crie duas listas extras que vão conter apenas os valores pares 
 # e os valores ímpares digitados, respectivamente
 # Ao final, mostre o conteúdo das três listas geradas
+print('-='*35)
+print('{:=^81}'.format('\33[30;42mLista pares e ímpares\33[m'))
+print('-='*35)
+
+lista_par_impar = []
+lista_par = []
+lista_impar = []
+
+while True:
+    lista_par_impar.append(int(input('Digite um número: ')))
+    sleep(0.23)
+    if input('Deseja continuar? [S/N] ').upper() == 'N':
+        break
+for aux in lista_par_impar:
+    if aux % 2 == 0:
+        lista_par.append(aux)
+    else:
+        lista_impar.append(aux)
+print(f'A lista completa é: {sorted(lista_par_impar)}')
+print(f'A lista de pares é: {sorted(lista_par)}')
+print(f'A lista de ímpares é: {sorted(lista_impar)}')
+print('\033[1;30;41m}#{|\033[m' * 20)
 
 #desafio 83
 # Crie um programa onde o usuário digite uma expressão qualquer que use parênteses
