@@ -31,6 +31,13 @@ valores = [8, 2, 5, 4, 9, 3, 0]
 valores.sort() # coloca os elementos da lista em ordem crescente
 for valor in valores:
     print(f'{valor}...', end='')
+for index, valor in enumerate(valores):
+    print(f'Na posição {index} encontrei o valor {valor}!')
+numeros_A = list(range(0, 9)) # cria uma lista com os valores de 0 a 8
+numeros_B = numeros_A[:] # cria uma cópia da lista numeros_A
+numeros_B.insert(0, 11) # adiciona o elemento 11 na posição 0 da lista
+print(numeros_A)
+print(numeros_B)
 
 #desafio 78
 # Faça um programa que leia 5 valores numéricos e guarde-os em uma lista
